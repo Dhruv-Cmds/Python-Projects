@@ -181,3 +181,4 @@ cython_debug/
 .cursorindexingignore
 
 players.txt
+Hi_score.txt
