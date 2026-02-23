@@ -1,5 +1,16 @@
 # Python Projects Collection
 
+## Overview
+
+This repository contains multiple structured mini-projects built to practice
+Object-Oriented Programming, system design, and real-world problem modeling.
+
+📁 Total projects inside: 
+🔹 Domains: Banking, Library Systems, Games, Utilities, Management Systems
+🔹 Focus: OOP, clean structure, reusable logic
+
+A structured collection of Python projects focused on object-oriented programming, modular design, and clean coding practices.
+
 A structured and continuously evolving repository of Python projects categorized into games, utilities, and real-world applications.
 
 This repository reflects my progression in Python development, covering problem-solving, object-oriented design, file handling, and system-based implementations.
