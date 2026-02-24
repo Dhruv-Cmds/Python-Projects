@@ -1,46 +1,24 @@
-# AUTHOR
+Bank Management System
 
-# Dhruv
----
+v1_basic     - basic procedural version
+v2_oop_file  - OOP version with file handling
 
-# 3️⃣ Bank Management System (Procedural One) – `README.md`
 
-Put inside **your list/dictionary ATM project folder**.
+## Screenshots
 
-```md
-# 🏦 Bank Management System – Python CLI
+### Version 1 (Basic)
+![Menu](screenshots/v1_menu.png)
+![Output](screenshots/v1_output_1.png)
+![Output](screenshots/v1_output_2.png)
+![Output](screenshots/v1_output_3.png)
+![Output](screenshots/v1_output_4.png)
+![Output](screenshots/v1_output_5.png)
 
-## 📌 Overview
-This project is a menu-driven Bank Management System created using basic Python concepts.  
-It demonstrates loops, lists, conditions, and user interaction.
-
----
-
-## 🧠 Concepts Used
-- Lists & Dictionaries
-- Loops
-- Conditional Statements
-- Functions
-- CLI Menu Systems
-
----
-
-## 🚀 Features
-- Create Account
-- Deposit Money
-- Withdraw Money
-- Check Balance
-- Exit System
-
----
-
-## 🛠 Tech Stack
-- Python 3
-- Command Line Interface
-
----
-
-## ▶️ How to Run
-```bash
-python main.py
-
+### Version 2 (OOP + File I/O)
+![Menu](screenshots/v2_menu.png)
+![Output](screenshots/v2_output_1.png)
+![Output](screenshots/v2_output_2.png)
+![Output](screenshots/v2_output_3.png)
+![Output](screenshots/v2_output_4.png)
+![Output](screenshots/v2_output_5.png)
+![Output](screenshots/v2_txt.png)
