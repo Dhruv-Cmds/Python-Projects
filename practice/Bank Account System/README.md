@@ -1,41 +1,22 @@
-# Author
+Management System
 
-# Dhruv
+v1_basic     - basic procedural version
+v2_oop_file  - OOP version with file handling
 
-# 🏦 Bank Account System – Python OOP
 
-## 📌 Overview
-This project is a simple Bank Account System built using **Object Oriented Programming in Python**.  
-It runs in the terminal and allows users to deposit, withdraw, and check account balances.
+## Screenshots
 
----
+### Version 1 (Basic)
+![Menu](screenshots/v1_menu.png)
+![Output](screenshots/v1_output_1.png)
+![Output](screenshots/v1_output_2.png)
+![Output](screenshots/v1_output_3.png)
+![Output](screenshots/v1_output_4.png)
 
-## 🧠 Concepts Used
-- Classes & Objects
-- Constructors (`__init__`)
-- Encapsulation
-- Methods
-- Input Validation
-- CLI Interaction
-
----
-
-## 🚀 Features
-- Multiple Accounts
-- Deposit Money
-- Withdraw Money with Validation
-- Show Account Details
-- Session Menu System
-
----
-
-## 🛠 Tech Stack
-- Python 3
-- Command Line Interface
-- OOP Concepts
-
----
-
-## ▶️ How to Run
-```bash
-python main.py
+### Version 2 (OOP + File I/O)
+![Menu](screenshots/v2_menu.png)
+![Output](screenshots/v2_output_1.png)
+![Output](screenshots/v2_output_2.png)
+![Output](screenshots/v2_output_3.png)
+![Output](screenshots/v2_output_4.png)
+![Output](screenshots/v2_txt.png)
