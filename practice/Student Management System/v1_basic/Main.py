@@ -40,11 +40,11 @@ class Student:
         print("Result:", self.pass_fail())
 
 
-s1 = Student("Dhruv" , 1)
-s1.add_marks(80)
-s1.add_marks(70)
-s1.add_marks(90)
+s = Student("Dhruv" , 1)
+s.add_marks(80)
+s.add_marks(70)
+s.add_marks(90)
 
-s1.calculate_average()
-s1.info()
-s1.pass_fail()
+s.calculate_average()
+s.info()
+s.pass_fail()
