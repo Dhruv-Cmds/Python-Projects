@@ -86,12 +86,5 @@ class BankAccount:
             else:
                 print("Invalid option.")
 
-acc1 = BankAccount(101, "Alice", 1000)
-acc2 = BankAccount(102, "Bob", 500)
-acc3 = BankAccount(103, "Charlie", 2000)
-
-accounts = [acc1, acc2, acc3]
-
-for acc in accounts:
-    print("----- New Account Session -----")
-    acc.Season_menu()
+b = BankAccount(101, "Alice", 1000)
+b.Season_menu()
