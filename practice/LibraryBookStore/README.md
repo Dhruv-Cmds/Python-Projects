@@ -1,26 +1,24 @@
+Library Book Store
 
----
+v1_basic     - basic procedural version
+v2_oop_file  - OOP version with file handling
 
-# 📚 Library-book-store
 
-```md
-# Library Book Store 📚
+## Screenshots
 
-A Python project to manage books in a library or bookstore system.
+### Version 1 (Basic)
+![Menu](screenshots/v1_menu.png)
+![Output](screenshots/v1_output_1.png)
+![Output](screenshots/v1_output_2.png)
+![Output](screenshots/v1_output_3.png)
+![Output](screenshots/v1_output_4.png)
+![Output](screenshots/v1_output_5.png)
 
-## Features
-- Add and remove books
-- View available books
-- Console based system
-- Simple and clean logic
-
-## How to Run
-```bash
-python library.py
-```
-
-## Author
-Dhruv
-
-## License
-Free to use for learning and educational purposes.
+### Version 2 (OOP + File I/O)
+![Menu](screenshots/v2_menu.png)
+![Output](screenshots/v2_output_1.png)
+![Output](screenshots/v2_output_2.png)
+![Output](screenshots/v2_output_3.png)
+![Output](screenshots/v2_output_4.png)
+![Output](screenshots/v2_output_5.png)
+![Output](screenshots/v2_txt.png)

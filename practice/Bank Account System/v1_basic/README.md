@@ -29,6 +29,13 @@ It runs in the terminal and allows users to deposit, withdraw, and check account
 
 ---
 
+## Project Structure
+
+v1_basic/
+├── Main.py
+└── bank.txt
+
+
 ## 🛠 Tech Stack
 - Python 3
 - Command Line Interface
