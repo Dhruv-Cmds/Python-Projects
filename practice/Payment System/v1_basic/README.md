@@ -4,7 +4,7 @@
 
 # 💳 Payment System (Polymorphism in Python)
 
-A beginner-friendly Python project that demonstrates **polymorphism** in Object-Oriented Programming by implementing multiple payment methods with a shared interface.
+A Python project that demonstrates **polymorphism** in Object-Oriented Programming by implementing multiple payment methods with a shared interface.
 
 ---
 
