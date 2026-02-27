@@ -1,4 +1,4 @@
-Library Book Store
+Secure Account
 
 v1_basic     - basic procedural version
 v2_oop_file  - OOP version with file handling
@@ -11,8 +11,6 @@ v2_oop_file  - OOP version with file handling
 ![Output](screenshots/v1_output_1.png)
 ![Output](screenshots/v1_output_2.png)
 ![Output](screenshots/v1_output_3.png)
-![Output](screenshots/v1_output_4.png)
-![Output](screenshots/v1_output_5.png)
 
 ### Version 2 (OOP + File I/O)
 ![Menu](screenshots/v2_menu.png)
