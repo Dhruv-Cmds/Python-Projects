@@ -25,6 +25,36 @@ More projects and advanced implementations will be added as I expand into backen
 
 Each folder represents practical implementations built to strengthen programming logic and software design principles.
 
+Project Structure:-
+
+repo-name/
+│
+├─ games/
+│   ├─ Number Guess Game/
+│   ├─ Perfect Guess Game/
+│   ├─ knowledge_arena/
+│   └─ SNAKE WATER Game/
+│
+├─ knowledge_arena/
+│
+├─ practice/
+│   ├─ Bank Account System/
+│   ├─ LibraryBookStore/
+│   ├─ Logical Questions/
+│   ├─ Payment System/
+│   ├─ Secure Account/
+│   ├─ Student Management System/
+│   └─ Vehicle System/
+│
+├─ utilities/
+│   ├─ Auto Replay ChatBot/
+│   ├─ Bank Management System/
+│   ├─ Jarvis AI/
+│   └─ Management System/
+│
+├─ LICENSE
+└─ README.md
+
 ## 🚀 Ongoing Development
 
 This repository will continue evolving as I learn:
