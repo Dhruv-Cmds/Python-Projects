@@ -32,6 +32,8 @@ def main():
             print(f"Attempts: {player.attempts}")
             print(f"Accuracy: {player.accuracy()}%")
 
+            save_players(players)
+
         elif choice == "2":
 
             result = input("Was the answer correct? (y/n): ").strip().lower()

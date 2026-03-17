@@ -1,6 +1,7 @@
 import os
-
-FILE = "players.txt"
+import json
+# FILE = "players.txt"
+FILE = "games/knowledge_arena/player.json"
 
 
 class Player:
@@ -32,20 +33,43 @@ def load_players():
         return players
 
     with open(FILE, "r") as f:
-        for line in f:
-            line = line.strip()
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError:
+            return players
 
-            if line:
-                name, score, correct, attempts = line.split(",")
+    for name, info in data.items():
+        players[name] = Player(
+            name,
+            info.get("score", 0),
+            info.get("correct", 0),
+            info.get("attempts", 0)
+        )
+        
+        # for line in f:
+        #     line = line.strip()
 
-                # Create Player object correctly
-                players[name] = Player(name, score, correct, attempts)
+        #     if line:
+        #         name, score, correct, attempts = line.split(",")
+
+        #         # Create Player object correctly
+        #         players[name] = Player(name, score, correct, attempts)
 
     return players
 
 
 def save_players(players):
+
+    data = {}
     with open(FILE, "w") as f:
-        for player in players.values():
-            line = f"{player.name},{player.score},{player.correct},{player.attempts}\n"
-            f.write(line)
+         for name, player in players.items():
+            data[name] = {
+            "score": player.score,
+            "correct": player.correct,
+            "attempts": player.attempts
+        }
+
+    with open(FILE, "w") as f:
+        json.dump(data, f, indent=4)
+            # line = f"{player.name},{player.score},{player.correct},{player.attempts}\n"
+            # f.write(line)
