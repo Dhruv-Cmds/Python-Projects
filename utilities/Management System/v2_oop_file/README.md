@@ -7,7 +7,7 @@ This version uses **Object-Oriented Programming** and **file handling** to persi
 - Add records/tasks
 - View stored records
 - Delete records
-- Data is saved to a file
+- Data is saved to a file and .json
 - Data persists even after program restart
 - Menu-driven CLI interface
 
@@ -21,7 +21,8 @@ This version uses **Object-Oriented Programming** and **file handling** to persi
 
 v2_oop_file/
 ├── management.py
-└── data.txt
+├── task.json
+└── task.txt
 
 
 ## How to Run

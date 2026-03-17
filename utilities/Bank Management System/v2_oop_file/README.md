@@ -8,7 +8,7 @@ This project uses **Object-Oriented Programming** and **file handling** to manag
 - Deposit money
 - Withdraw money
 - Check account balance
-- Data persistence using a text file
+- Data persistence using a text file and .json
 - Menu-driven command-line interface
 
 ## Concepts Used
@@ -21,6 +21,7 @@ This project uses **Object-Oriented Programming** and **file handling** to manag
 ## Project Structure
 v2_oop_file/
 ├── Main.py
+├── bank.json
 └── bank.txt
 
 
