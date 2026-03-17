@@ -1,6 +1,8 @@
+import json
+
 class Bank:
 
-    def __init__(self , filepath = "bank.txt"):
+    def __init__(self , filepath = "utilities/Bank Management System/v2_oop_file/bank.json"): #"bank.txt"
         self.accounts = []
         self.filepath = filepath
         self.load()
@@ -37,35 +39,59 @@ class Bank:
             else:
                 print("Invalid choice.")
 
-    def save(self):
-        with open (self.filepath , "w") as f:
-            for name , balance in self.accounts:
-                f.write(f"{name} , {balance}\n")
+    '''Data save in .txt file'''
+    # def save(self):
+    #     with open (self.filepath , "w") as f:
+    #         for name , balance in self.accounts:
+    #             f.write(f"{name} , {balance}\n")
     
+    # def load(self):
+    #     self.accounts = []
+    #     try:
+    #         with open(self.filepath, "r") as f:
+    #             for line in f:
+    #                 name, balance = line.split(",")
+    #                 name = name.strip().lower()
+    #                 balance = int(balance.strip())
+    #                 self.accounts.append([name, balance])
+    #     except FileNotFoundError:
+    #         pass
+
+    '''Data save in .json file'''
+
+    def save(self):
+        
+        with open (self.filepath , "w") as f:
+            json.dump(self.accounts , f , indent=4)
+
     def load(self):
-        self.accounts = []
+
         try:
-            with open(self.filepath, "r") as f:
-                for line in f:
-                    name, balance = line.split(",")
-                    name = name.strip().lower()
-                    balance = int(balance.strip())
-                    self.accounts.append([name, balance])
+            with open (self.filepath , "r") as f:
+                self.accounts = json.load(f)
+
         except FileNotFoundError:
-            pass
+            self.accounts = []
+
     def create_account(self):
+
         while True:
+
             try:
                 acc_name = input("Enter your name: ").strip().lower()
                 st_balance = int(input("Enter starting amount: "))
+
             except ValueError:
                 print("Invalid input.")
                 continue
+
             if(st_balance <= 0):
                 print("Amount must be grater than 0.")
+                continue
+            
             break
 
-        new_acc = [acc_name, st_balance]
+        new_acc = {"name" : acc_name, "balance" : st_balance}
         self.accounts.append(new_acc)
 
         print(f"Your account created successfully. Your name is: {acc_name}")
@@ -94,10 +120,12 @@ class Bank:
             return
 
         for account in self.accounts:
-            if account[0] == name:
-                account[1] += amount
+            if account["name"] == name:
+                account["balance"] += amount
+
                 print(f"Your amount '{amount}' deposited successfully.")
-                print(f"New balance: {account[1]}")
+                print(f"New balance: {account["balance"]}")
+
                 found = True
                 self.save()
                 break
@@ -113,12 +141,15 @@ class Bank:
             return
 
         while True:
+
             try:
                 name = input("Enter your name: ").strip().lower()
                 amount = int(input("Enter withdrawn amount: "))
+
             except ValueError:
                 print("Invalid amount type.")
                 continue
+
             break
 
         found = False 
@@ -128,16 +159,22 @@ class Bank:
             return
 
         for account in self.accounts:
-            if account[0] == name:
-                if amount > account[1]:
+            
+            if account["name"] == name:
+
+                if amount > account["balance"]:
                     print("Insufficient funds.")
                     return
 
-                account[1] -= amount
+                account["balance"] -= amount
+
                 print(f"{amount} withdrawn successfully.")
-                print(f"Remaining balance is {account[1]}")
+                print(f"Remaining balance is {account["balance"]}")
+
                 found = True
+
                 self.save()
+
                 break
 
         if not found:
@@ -154,8 +191,8 @@ class Bank:
         found = False
 
         for account in self.accounts:
-            if account[0] == name:
-                print(f"Current balance: {account[1]}")
+            if account["name"] == name:
+                print(f"Current balance: {account["balance"]}")
                 found = True
                 break  
 

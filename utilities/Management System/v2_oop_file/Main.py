@@ -1,22 +1,39 @@
+import json
+
 class Management:  
-    def __init__(self , filepath = "task.txt"):
+    def __init__(self , filepath = "utilities/Management System/v2_oop_file/task.json"): #"task.txt"
 
         self.tasks = []
         self.filepath = filepath
         self.load()
 
-    def save(self):
-        with open (self.filepath , "w") as f:
-            for task in self.tasks:
-                f.write(task + "\n")
+    '''Data save in .txt file'''
+    # def save(self):
+    #     with open (self.filepath , "w") as f:
+    #         for task in self.tasks:
+    #             f.write(task + "\n")
                 
+    # def load(self):
+    #     try:
+    #         with open(self.filepath , "r") as f:
+    #             self.tasks = [line.strip() for line in f if line.strip()]
+    #     except FileNotFoundError:
+    #             self.tasks = []
+
+    '''Data save in .json file'''
+    def save(self):
+        
+        with open (self.filepath , "w") as f:
+            json.dump(self.tasks , f , indent=4)
+
     def load(self):
+
         try:
             with open(self.filepath , "r") as f:
-                self.tasks = [line.strip() for line in f if line.strip()]
-        except FileNotFoundError:
-                self.tasks = []
+                self.tasks = json.load(f)
 
+        except FileNotFoundError:
+            self.tasks = []
     def run(self):
 
         while True:
@@ -37,7 +54,8 @@ class Management:
             
             if (choice == 1):
                 task = input(("Enter your task: "))
-                self.tasks.append(task)
+                self.tasks.append({"task" : task})
+                self.save()
                 print("Task added")
 
             elif (choice == 2):
@@ -56,7 +74,7 @@ class Management:
                 else:
                     print("----Tasks list:----")
                     for i , task in enumerate(self.tasks , 1):
-                        print(f"{i}. {task}")
+                        print(f"{i}. {task['task']}")
 
                     try:
                         numOfTask = int(input("Enter task number to delete: "))
@@ -67,6 +85,8 @@ class Management:
                     if (numOfTask >= 1 and numOfTask <= len(self.tasks)):
                         remove = self.tasks.pop(numOfTask - 1)
                         print(f"Task has been removed {remove}")
+
+                        self.save()
                     
                     else:
                         print("Invalid Task number.")
