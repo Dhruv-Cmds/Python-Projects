@@ -1,33 +1,58 @@
+import json
+
 class Bankaccount:
 
-    def __init__(self , name , acc_no , balance , filepath = "bank.txt"):
+    def __init__(self , name , acc_no , balance ,  filepath = "practice/Bank Account System/v2_oop_file/bank.json" ): # filepath = "bank.txt"):
         self.name = name
         self.acc_no = acc_no
         self.balance = balance
         self.filepath = filepath
         self.load()
 
-    def save (self):
+    # .txt use
+    # def save (self):
+    #     with open (self.filepath , "w") as f:
+    #             f.write(f"{self.name} {self.acc_no} {self.balance}\n")
+
+    # def load(self):
+
+    #     try:
+    #         with open(self.filepath, "r") as f:
+    #             data = f.read().strip()
+    #             if data:
+    #                 name, acc_no, balance = data.split()
+    #                 self.name = name
+    #                 self.acc_no = int(acc_no)
+    #                 self.balance = int(balance)
+
+    #     except FileNotFoundError:
+    #         self.save()
+    
+    #  .json use
+    def save(self):
         with open (self.filepath , "w") as f:
-                f.write(f"{self.name} {self.acc_no} {self.balance}\n")
-
-    def load(self):
-
+            json.dump({"name": self.name, "acc_no": self.acc_no, "balance": self.balance }, f , indent=4)
+    
+    def load (self):
+        
         try:
-            with open(self.filepath, "r") as f:
-                data = f.read().strip()
-                if data:
-                    name, acc_no, balance = data.split()
-                    self.name = name
-                    self.acc_no = int(acc_no)
-                    self.balance = int(balance)
+            with open (self.filepath , "r") as f:
+                data = json.load(f)
 
+                if data: 
+                    self.name = data.get("name" , self.name)
+                    self.acc_no = data.get("acc_no" , self.acc_no)
+                    self.balance = data.get("balance" , self.balance)
+                
+                else:
+                    self.save()
+        
         except FileNotFoundError:
             self.save()
-    
+
     def deposit(self):
 
-        name = input("Enter your name: ")
+        name = input("Enter your name: ").capitalize().strip()
 
         if name.isalpha() and name == self.name:
             while True:
@@ -48,7 +73,7 @@ class Bankaccount:
 
     def withdraw (self):
 
-        name = input("Enter your name: ")
+        name = input("Enter your name: ").capitalize().strip()
 
         if name.isalpha() and name == self.name:
             while True:

@@ -34,6 +34,7 @@ class Management:
 
         except FileNotFoundError:
             self.tasks = []
+            
     def run(self):
 
         while True:
