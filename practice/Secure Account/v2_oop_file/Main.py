@@ -34,8 +34,8 @@ class accountsecure:
                 data = json.load(f)
 
                 if data: 
-                    self.name = data.get("acc_no" , self.name)
-                    self.acc_no = data.get("pin" , self.acc_no)
+                    self.name = data.get("acc_no" , self.acc_no)
+                    self.acc_no = data.get("pin" , self.pin)
                     self.balance = data.get("balance" , self.balance)
                 
                 else:
