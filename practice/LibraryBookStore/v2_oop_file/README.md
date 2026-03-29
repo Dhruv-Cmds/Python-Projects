@@ -12,7 +12,7 @@ All data is stored persistently using a text file.
 - View all books with their status (Available / Issued)
 - Issue a book by title
 - Return a book by title
-- Data is saved in a file (`library.txt`)
+- Data is saved in a file (`library.txt`) / (`library.json`)
 - Simple menu-driven interface
 
 ---
@@ -30,3 +30,4 @@ All data is stored persistently using a text file.
 v2_oop_file/
 ├── Main.py
 └── library.txt
+└── library.json

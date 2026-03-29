@@ -6,7 +6,7 @@ This version uses **Object-Oriented Programming** and **file handling** to persi
 ## Features
 - Add records/tasks
 - View stored records
-- Data is saved to a file
+- Data is saved to a file (`.txt/.json`)
 - Data persists even after program restart
 - Menu-driven CLI interface
 
@@ -21,6 +21,7 @@ This version uses **Object-Oriented Programming** and **file handling** to persi
 v2_oop_file/
 ├── Main.py
 └── bank.txt
+└── bank.json
 
 
 ## How to Run

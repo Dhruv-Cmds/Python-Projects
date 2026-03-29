@@ -15,7 +15,7 @@ The system allows users to securely manage their account using PIN verification 
 - Withdraw money after PIN verification  
 - Check account balance securely  
 - Display account information  
-- Persistent storage using file handling (`account.txt`)  
+- Persistent storage using file handling (`account.txt`) / (`account.json`)
 
 ---
 

@@ -18,7 +18,7 @@ The program allows storing student data in txt formate, adding marks, and evalua
 - Calculate Average
 - Pass / Fail Evaluation
 - Display Student Information
-- Save Information into student.txt
+- Save Information into student.txt/.json
 
 ---
 
