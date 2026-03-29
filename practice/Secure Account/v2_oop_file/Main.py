@@ -1,28 +1,52 @@
+import json
+
 class accountsecure:
 
-    def __init__(self , acc_no , pin , balance , filepath = "account.txt"):
+    def __init__(self , acc_no , pin , balance , filepath = "practice/Secure Account/v2_oop_file/account.json"): #filepath = "account.txt"
         self.acc_no = acc_no
         self.pin = pin
         self.balance = balance
         self.filepath = filepath
         self.load()
 
-    def load(self):
-        try:
-            with open(self.filepath, "r") as f:
-                data = f.read().strip()
-                if data:
-                    acc_no, pin, balance = data.split()
-                    self.acc_no = int(acc_no)
-                    self.pin = str(pin)
-                    self.balance = int(balance)
+    #  .txt formate
+    # def load(self):
+    #     try:
+    #         with open(self.filepath, "r") as f:
+    #             data = f.read().strip()
+    #             if data:
+    #                 acc_no, pin, balance = data.split()
+    #                 self.acc_no = int(acc_no)
+    #                 self.pin = str(pin)
+    #                 self.balance = int(balance)
 
+    #     except FileNotFoundError:
+    #         self.save()
+
+    # def save(self):
+    #     with open (self.filepath , "w") as f:
+    #         f.write(f"{self.acc_no} {self.pin} {self.balance}\n")
+
+    def load (self):
+        
+        try:
+            with open (self.filepath , "r") as f:
+                data = json.load(f)
+
+                if data: 
+                    self.name = data.get("acc_no" , self.name)
+                    self.acc_no = data.get("pin" , self.acc_no)
+                    self.balance = data.get("balance" , self.balance)
+                
+                else:
+                    self.save()
+        
         except FileNotFoundError:
             self.save()
 
-    def save(self):
+    def save (self):
         with open (self.filepath , "w") as f:
-            f.write(f"{self.acc_no} {self.pin} {self.balance}\n")
+            json.dump({"acc_no": self.acc_no ,"pin": self.pin  , "balance" : self.balance}, f , indent=4)
     
     def deposit(self):
         while True:
