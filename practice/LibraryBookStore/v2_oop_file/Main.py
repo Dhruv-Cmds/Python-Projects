@@ -1,3 +1,4 @@
+import json
 class BookStore:
     
     def __init__(self, author, title, is_issued=False):
@@ -7,34 +8,58 @@ class BookStore:
 
 class Library:
 
-    filepath = "library.txt"
+    # filepath = "library.txt"
+    filepath = "practice/LibraryBookStore/v2_oop_file/library.json"
 
     def __init__(self):
         self.books = []
         self.load()
-        
-    def save(self):     
-        with open (self.filepath , "w") as f:
-            for book in self.books:
-                f.write(f"{book.title}|{book.author}|{book.is_issued}\n")
 
-    def load(self):
+    # .txt formate 
+    # def save(self):     
+        # with open (self.filepath , "w") as f:
+    #         for book in self.books:
+    #             f.write(f"{book.title}|{book.author}|{book.is_issued}\n")
+
+    # def load(self):
+    #     try:
+    #         with open(self.filepath, "r") as f:
+    #             for line in f:
+    #                 title, author, is_issued = line.strip().split("|")
+    #                 self.books.append(
+    #                     BookStore(author, title, is_issued == "True")
+    #                 )
+    #     except FileNotFoundError:
+    #         self.save()
+
+
+    # .json formate
+    def save (self):
+        
+        with open (self.filepath , "w") as f:
+            json.dump([book.__dict__ for book in self.books], f , indent=4)
+
+    def load (self):
+        
         try:
             with open(self.filepath, "r") as f:
-                for line in f:
-                    title, author, is_issued = line.strip().split("|")
-                    self.books.append(
-                        BookStore(author, title, is_issued == "True")
-                    )
+                data = json.load(f)
+                self.books = [
+                    BookStore(book["author"], book["title"], book["is_issued"])
+                    for book in data
+                ]
+                
         except FileNotFoundError:
-            self.save()
+            self.books = []
     
     def add_book (self , title , author):
+
         self.books.append(BookStore(author , title))
         self.save()
         print("Book added")
     
     def available_books(self):
+
         if not self.books:
             print("No book found.")
             return
@@ -44,25 +69,37 @@ class Library:
             print(f"{i}. {book.title} by {book.author} [{status}]")
 
     def issue_book(self , title):
+
         for book in self.books:
             if book.title == title and not book.is_issued:
                 book.is_issued = True
+
                 self.save()
-                print("✅ Book issued")
+
+                print("Book issued")
+
                 return
-        print("❌ Book not available")
+            
+        print("Book not available")
 
     def return_book(self, title):
+
         for book in self.books:
             if book.title == title and book.is_issued:
                 book.is_issued = False
+
                 self.save()
-                print("✅ Book returned")
+
+                print("Book returned")
+
                 return
-        print("❌ Book not found or not issued")
+            
+        print("Book not found or not issued")
 
     def menu (self):
+
         while True:
+
             print("\n===== Library Menu =====")
             print("1. Add Book")
             print("2. Show Books")
