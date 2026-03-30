@@ -67,6 +67,7 @@ This repository is a structured collection of Python projects organized into gam
 │
 ├─ practice/
 │   ├─ Bank Account System/
+│   ├─ josn cli user System/
 │   ├─ LibraryBookStore/
 │   ├─ Logical Questions/
 │   ├─ Payment System/
