@@ -9,10 +9,10 @@ while True:
     print("3. Delete task")
     print("4. Exit")
 
-    userChoice = input("Plese select your choice from option (1-4) :")
+    userChoice = input("Plese select your choice from option (1-4) :").strip()
 
     if userChoice == "1":
-        task = input("Enter task: ")
+        task = input("Enter task: ").strip()
         tasks.append(task)
         print("Task added")
     

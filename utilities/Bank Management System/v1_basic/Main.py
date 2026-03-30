@@ -13,10 +13,10 @@ while True:
     print("4. Check balance")
     print("5. Exit")
 
-    userchoice = input("Plese select your option to proced :")
+    userchoice = input("Plese select your option to proced :").strip()
 
     if userchoice == "1":
-        name = input("Enter your name :")
+        name = input("Enter your name :").strip().lower()
         balance = int(input("Enter starting balance: "))
 
         print(f"You sucsuccessfully created account. Your account name is {name}")
@@ -30,7 +30,7 @@ while True:
             print("Account not found")
 
         else:
-            name = input("Enter your name :")
+            name = input("Enter your name :").strip().lower()
             # da = deposit amount
             da = int(input("Enter an amount to Deposit :"))
 
@@ -54,7 +54,7 @@ while True:
             print("Account not found")
 
         else:
-            name = input("Enter your name :")
+            name = input("Enter your name :").strip().lower()
             # wa = wihtdraw amount
             wa = int(input("Enter withdraw amount :"))
 
@@ -83,7 +83,7 @@ while True:
             print("No account found.")
 
         else:
-            name = input("Enter account name: ")
+            name = input("Enter account name: ").strip().lower()
 
             found = False
 
@@ -98,7 +98,7 @@ while True:
                     print("Account not found.")
 
     elif userchoice == "5":
-        print("Thank you for using our bank system 😊")
+        print("Thank you for using our bank system")
         print("Good bye...")
         break
 

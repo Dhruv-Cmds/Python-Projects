@@ -27,6 +27,7 @@ class accountsecure:
     #     with open (self.filepath , "w") as f:
     #         f.write(f"{self.acc_no} {self.pin} {self.balance}\n")
 
+    # .json
     def load (self):
         
         try:

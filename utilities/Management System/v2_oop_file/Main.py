@@ -54,7 +54,7 @@ class Management:
                 continue
             
             if (choice == 1):
-                task = input(("Enter your task: "))
+                task = input(("Enter your task: ")).strip()
                 self.tasks.append({"task" : task})
                 self.save()
                 print("Task added")
