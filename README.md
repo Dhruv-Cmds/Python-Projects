@@ -85,18 +85,6 @@ This repository is a structured collection of Python projects organized into gam
 
   ```
 
-## Library Book Store System
-
-The Library Book Store module allows you to:
-
-Add, update, and remove books
-
-Manage user or customer records
-
-Handle book issuing or purchasing logic
-
-Track availability of books
-
 ## Contributing
 
 1. Fork the repository
