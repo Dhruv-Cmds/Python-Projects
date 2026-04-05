@@ -8,7 +8,7 @@ This project uses **Object-Oriented Programming** and **file handling** to manag
 - Deposit money
 - Withdraw money
 - Check account balance
-- Data persistence using a text file and .json
+- Data persistence using a (`.txt`/`.json `/`Mysql(Database)`)
 - Menu-driven command-line interface
 
 ## Concepts Used
@@ -20,17 +20,28 @@ This project uses **Object-Oriented Programming** and **file handling** to manag
 
 ## Project Structure
 v2_oop_file/
+├── MYSql queries/
 ├── Main.py
 ├── bank.json
 └── bank.txt
 
-
 ## How to Run
-Make sure Python is installed on your system.
+Make sure Python is installed on your system. And MySql for Database
 
 ```bash
 
 - python Main.py
+
+### ⚠️ Warning
+
+The database can store multiple users with the same name. However, this project uses the **name** field to identify users.
+
+Because of this, if duplicate names are added, operations like **update, delete, or withdraw** may affect multiple accounts at once.
+
+To avoid this issue, do not create multiple accounts with the same name.
+
+> Note: This can be prevented by using a unique **ID**, but for learning purposes, the project intentionally uses names without changing the original structure.
+
 
 Notes:-
 

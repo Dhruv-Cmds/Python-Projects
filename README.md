@@ -9,7 +9,7 @@ This repository is a structured collection of Python projects organized into gam
 - Covers games, utilities, and system-based applications
 - Beginner to intermediate level implementations
 - Modular and reusable logic
-- Data storege option (`.txt` , `.json`)
+- Data storege option (`.txt` , `.json` , `MySql (Database)`)
 
 ---
 

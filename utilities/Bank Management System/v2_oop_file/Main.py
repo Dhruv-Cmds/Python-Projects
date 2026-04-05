@@ -1,11 +1,28 @@
-import json
+# import json
+import mysql.connector 
 
 class Bank:
 
-    def __init__(self , filepath = "utilities/Bank Management System/v2_oop_file/bank.json"): #"bank.txt"
-        self.accounts = []
-        self.filepath = filepath
-        self.load()
+    #  use this when you use .json or .txt
+
+    # def __init__(self , filepath = "utilities/Bank Management System/v2_oop_file/bank.json"): #"bank.txt"
+    #     self.accounts = []
+    #     self.filepath = filepath
+    #     self.load()
+
+
+    # DATA store in MySql databasae
+    def __init__(self):
+
+        # create connection
+        self.conn = mysql.connector.connect (
+            host = "localhost",
+            user = "root",
+            password = "YOUR_PASSWORD_HERE",
+            database = "BankManagementSystem"
+        )
+        
+        self.cursor = self.conn.cursor()
     
     def menu(self):
 
@@ -39,6 +56,8 @@ class Bank:
             else:
                 print("Invalid choice.")
 
+# --------------------------------------------------------------------------------------------------------------------
+
     '''Data save in .txt file'''
     # def save(self):
     #     with open (self.filepath , "w") as f:
@@ -57,21 +76,23 @@ class Bank:
     #     except FileNotFoundError:
     #         pass
 
-    '''Data save in .json file'''
+# --------------------------------------------------------------------------------------------------------------------
 
-    def save(self):
+    # '''Data save in .json file'''
+
+    # def save(self):
         
-        with open (self.filepath , "w") as f:
-            json.dump(self.accounts , f , indent=4)
+    #     with open (self.filepath , "w") as f:
+    #         json.dump(self.accounts , f , indent=4)
 
-    def load(self):
+    # def load(self):
 
-        try:
-            with open (self.filepath , "r") as f:
-                self.accounts = json.load(f)
+    #     try:
+    #         with open (self.filepath , "r") as f:
+    #             self.accounts = json.load(f)
 
-        except FileNotFoundError:
-            self.accounts = []
+    #     except FileNotFoundError:
+    #         self.accounts = []
 
     def create_account(self):
 
@@ -91,18 +112,25 @@ class Bank:
             
             break
 
-        new_acc = {"name" : acc_name, "balance" : st_balance}
-        self.accounts.append(new_acc)
+        # new_acc = {"name" : acc_name, "balance" : st_balance}
+        # self.accounts.append(new_acc)
+
+        # FOR MySql data base
+        sql = "INSERT INTO accounts (name, balance) VALUES (%s, %s)"
+        VALUES = (acc_name , st_balance)
+
+        self.cursor.execute(sql, VALUES)
+        self.conn.commit()
 
         print(f"Your account created successfully. Your name is: {acc_name}")
 
-        self.save()
+        # self.save()
     
     def deposit(self):
 
-        if not self.accounts:
-            print("No Account Created.")
-            return
+        # if not self.accounts:
+        #     print("No Account Created.")
+        #     return
 
         while True:
             try:
@@ -119,26 +147,39 @@ class Bank:
             print("Amount must be greater than 0.")
             return
 
-        for account in self.accounts:
-            if account["name"] == name:
-                account["balance"] += amount
+        # for account in self.accounts:
+        #     if account["name"] == name:
+        #         account["balance"] += amount
 
-                print(f"Your amount '{amount}' deposited successfully.")
-                print(f"New balance: {account["balance"]}")
+        #         print(f"Your amount '{amount}' deposited successfully.")
+        #         print(f"New balance: {account["balance"]}")
 
-                found = True
-                self.save()
-                break
+        #         found = True
+        #         self.save()
+        #         break
 
-        if not found:
+        # if not found:
+        #     print("Account not found.")
+
+        sql = "UPDATE accounts SET balance = balance + %s WHERE name = %s"
+        VALUES = (amount, name)
+
+        self.cursor.execute(sql, VALUES)
+        self.conn.commit()
+
+
+        if self.cursor.rowcount == 0:
             print("Account not found.")
+        else:
+            print("Deposit successful.")
+
 
             
     def withdraw(self):
 
-        if not self.accounts:
-            print("No Account Created.")
-            return
+        # if not self.accounts:
+        #     print("No Account Created.")
+        #     return
 
         while True:
 
@@ -152,51 +193,84 @@ class Bank:
 
             break
 
-        found = False 
+        # found = False 
                     
-        if amount <= 0:
-            print("Amount must be greater than 0.")
+        # if amount <= 0:
+        #     print("Amount must be greater than 0.")
+        #     return
+
+        # for account in self.accounts:
+            
+        #     if account["name"] == name:
+
+        #         if amount > account["balance"]:
+        #             print("Insufficient funds.")
+        #             return
+
+        #         account["balance"] -= amount
+
+        #         print(f"{amount} withdrawn successfully.")
+        #         print(f"Remaining balance is {account["balance"]}")
+
+        #         found = True
+
+        #         self.save()
+
+        #         break
+
+        # if not found:
+        #     print("Account not found.")
+
+
+        # check balance first
+        sql = "SELECT balance FROM accounts WHERE name = %s"
+        self.cursor.execute(sql, (name,))
+        result = self.cursor.fetchone()
+
+        if not result:
+            print("Account not found.")
             return
 
-        for account in self.accounts:
-            
-            if account["name"] == name:
+        balance = result[0]
 
-                if amount > account["balance"]:
-                    print("Insufficient funds.")
-                    return
+        if amount > balance:
+            print("Insufficient funds.")
+            return
 
-                account["balance"] -= amount
+        # update
+        sql = "UPDATE accounts SET balance = balance - %s WHERE name = %s"
+        self.cursor.execute(sql, (amount, name))
+        self.conn.commit()
 
-                print(f"{amount} withdrawn successfully.")
-                print(f"Remaining balance is {account["balance"]}")
-
-                found = True
-
-                self.save()
-
-                break
-
-        if not found:
-            print("Account not found.")
+        print("Withdrawal successful.")
 
         
     def check_balance(self):
          
-        if not self.accounts:
-            print("No Account Created.")
-            return
+        # if not self.accounts:
+        #     print("No Account Created.")
+        #     return
 
         name = input("Enter your name: ").strip().lower()
         found = False
 
-        for account in self.accounts:
-            if account["name"] == name:
-                print(f"Current balance: {account["balance"]}")
-                found = True
-                break  
+        # for account in self.accounts:
+        #     if account["name"] == name:
+        #         print(f"Current balance: {account["balance"]}")
+        #         found = True
+        #         break  
 
-        if not found:
+        # if not found:
+        #     print("Account not found.")
+
+        sql = "SELECT balance FROM accounts WHERE name = %s"
+        self.cursor.execute(sql, (name,))
+        result = self.cursor.fetchone()
+
+        if result:
+            print(f"Current balance: {result[0]}")
+
+        else:
             print("Account not found.")
 
 
