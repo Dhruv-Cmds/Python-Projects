@@ -7,7 +7,7 @@ This version uses **Object-Oriented Programming** and **file handling** to persi
 - Add records/tasks
 - View stored records
 - Delete records
-- Data is saved to a file .txt and .json
+- Data persistence using a (`.txt`/`.json `/`Mysql(Database)`)
 - Data persists even after program restart
 - Menu-driven CLI interface
 
@@ -20,6 +20,7 @@ This version uses **Object-Oriented Programming** and **file handling** to persi
 ## Project Structure
 
 v2_oop_file/
+├── MYSql queries/
 ├── management.py
 ├── task.json
 └── task.txt
