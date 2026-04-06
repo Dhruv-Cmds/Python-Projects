@@ -14,7 +14,7 @@ class Management:
         self.conn = mysql.connector.connect(
             host = "localhost",
             user = "root",
-            password = "REMOVED",
+            password = "YOUR_PASSWORD_HERE",
             database = "managementsystem"
         )
 
