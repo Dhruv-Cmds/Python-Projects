@@ -117,9 +117,9 @@ class Bank:
 
         # FOR MySql data base
         sql = "INSERT INTO accounts (name, balance) VALUES (%s, %s)"
-        VALUES = (acc_name , st_balance)
+        values = (acc_name , st_balance)
 
-        self.cursor.execute(sql, VALUES)
+        self.cursor.execute(sql, values)
         self.conn.commit()
 
         print(f"Your account created successfully. Your name is: {acc_name}")
@@ -162,9 +162,9 @@ class Bank:
         #     print("Account not found.")
 
         sql = "UPDATE accounts SET balance = balance + %s WHERE name = %s"
-        VALUES = (amount, name)
+        values = (amount, name)
 
-        self.cursor.execute(sql, VALUES)
+        self.cursor.execute(sql, values)
         self.conn.commit()
 
 
