@@ -48,7 +48,7 @@ Data persistence is handled via file storage (TXT/JSON) and extended to database
 ```
 v2_oop_file/
 │── MySql queries/
-│    │── main.sql     # SQL schema
+│    │── main.sql  # SQL schema
 │── Main.py        # Entry point
 │── db.py          # Database connection
 │── student.json   # JSON storage (optional)
