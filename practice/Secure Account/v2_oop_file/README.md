@@ -1,45 +1,92 @@
-# 🔐 Secure Account System (Python OOP)
+# 🔐 Secure Account System
 
-**Author:** Dhruv  
+### 📖 Overview
 
-A Python project demonstrating **Object-Oriented Programming (OOP)** concepts through a simple and secure banking account system with file handling support.
+A modular **Secure Account System** built using Python and Object-Oriented Programming (OOP) principles.  
+The application simulates real-world banking operations such as account creation, deposits, withdrawals, and balance checks with secure **PIN-based authentication**.
 
-The system allows users to securely manage their account using PIN verification and persistent data storage.
-
----
-
-## 📌 Features
-
-- Create a secure account with PIN protection  
-- Deposit money with input validation  
-- Withdraw money after PIN verification  
-- Check account balance securely  
-- Display account information  
-- Persistent storage using file handling (`account.txt`) / (`account.json`)
+Data persistence is handled via:
+- File storage (TXT / JSON)
+- Database integration (MySQL)
 
 ---
 
-## 🧠 OOP Concepts Used
+### 🧠 Core Concepts
 
-- Encapsulation  
-- Classes & Objects  
-- Methods  
-- Data protection using PIN logic  
-- File Handling (Load & Save mechanism)  
-
----
-
-## 🛠 Tech Stack
-
-- Python 3  
-- No external libraries  
+* Object-Oriented Programming (Classes & Objects)
+* Encapsulation
+* Methods & Code Reusability
+* File Handling (TXT / JSON)
+* Database Integration (MySQL)
+* CRUD Operations
+* Input Validation & Error Handling
 
 ---
 
-## ▶️ How to Run
+### 🚀 Features
 
-1. Make sure Python 3 is installed  
-2. Run the program:
+* Create account with secure PIN  
+* Deposit money with validation  
+* Withdraw money with balance verification  
+* Check account balance securely  
+* Display account information  
+* Persistent storage using:
+
+  * Text files (`account.txt`)
+  * JSON files (`account.json`)
+  * MySQL database  
+
+---
+
+### 🛠 Tech Stack
+
+* **Language:** Python 3  
+* **Concepts:** OOP, File Handling  
+* **Database:** MySQL  
+* **Libraries:** `mysql-connector-python`, `python-dotenv`  
+
+---
+
+### 📂 Project Structure
+
+Secure-Account-System/
+│── Main.py # Entry point
+│── db.py # Database connection
+│── account.txt # TXT storage (optional)
+│── account.json # JSON storage (optional)
+│── requirements.txt
+
+
+---
+
+### ▶️ How to Run
+
+1. Navigate to the project directory:
 
 ```bash
-python main.py
+cd "Secure Account/v2_oop_file"
+
+2. Install dependencies:
+
+pip install mysql-connector-python python-dotenv
+
+3. Create a .env file:
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=your_password
+    DB_NAME=your_database
+
+4. Run the application:
+    python Main.py
+
+
+⚙️ Setup Requirements
+Make sure MySQL is installed and running
+Create your database manually or via SQL script
+Update .env with correct credentials
+
+🔐 Security Features
+PIN-based authentication
+Input validation for all operations
+Protection against invalid transactions
+Controlled database access

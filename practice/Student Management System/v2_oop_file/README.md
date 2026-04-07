@@ -88,17 +88,6 @@ pip install -r requirements.txt
 mysql -u root -p < main.sql
 ```
 
----
-
-### 📈 Future Improvements
-
-* CLI menu interface
-* Update & delete student records
-* GUI integration (Tkinter / Web)
-* Authentication system
-* REST API support
-
----
 
 ### 👨‍💻 Author
 
