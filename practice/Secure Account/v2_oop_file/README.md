@@ -48,14 +48,14 @@ Data persistence is handled via:
 ---
 
 ### 📂 Project Structure
-
+```
 Secure-Account-System/
 │── Main.py # Entry point
 │── db.py # Database connection
 │── account.txt # TXT storage (optional)
 │── account.json # JSON storage (optional)
 │── requirements.txt
-
+```
 
 ---
 
