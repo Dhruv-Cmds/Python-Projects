@@ -45,7 +45,7 @@ This repository is a structured collection of Python projects organized into gam
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Dhruv-Cmds/<your-repo-name>.git
+   git clone https://github.com/Dhruv-Cmds/Python-Projects.git
    
 2. Navigate into the project directory:
    ```
@@ -85,25 +85,6 @@ This repository is a structured collection of Python projects organized into gam
 └─ README.md
 
   ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a new branch:
-  ```
-git checkout -b feature/YourFeature
-  ```
-4. Commit your changes:
-  ```
-  git commit -m "Add your feature"
-  ```
-
-5. Push to the branch:
-  ```
-  git push origin feature/YourFeature
-  ```
-
-Open a pull request
-
+  
 ## License
 This project is licensed under the MIT License.
