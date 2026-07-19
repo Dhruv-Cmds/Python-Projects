@@ -46,11 +46,12 @@ This repository is a structured collection of Python projects organized into gam
 1. Clone the repository:
    ```bash
    git clone https://github.com/Dhruv-Cmds/Python-Projects.git
+   ```
    
 2. Navigate into the project directory:
-   ```
+  ```bash
   cd Python-Projects
-
+  ```
 3. Run the program:
   python main.py
 
